@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
 interface InputProps {
+  value: string;
+  setValue: (newValue: string) => void;
   placeholder: string;
   marginTop?: number;
   marginRight?: number;
@@ -20,6 +22,8 @@ const styles = StyleSheet.create({
 });
 
 export const Input: React.FC<InputProps> = ({
+  value,
+  setValue,
   placeholder,
   marginTop,
   marginRight,
@@ -33,6 +37,8 @@ export const Input: React.FC<InputProps> = ({
         styles.input,
         { marginTop, marginRight, marginBottom, marginLeft },
       ]}
+      value={value}
+      onChangeText={setValue}
     />
   );
 };

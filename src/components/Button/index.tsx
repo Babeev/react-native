@@ -5,6 +5,7 @@ interface ButtonProps {
   backgroundColor: string;
   color: string;
   text: string;
+  onClick: () => void;
 }
 
 const styles = StyleSheet.create({
@@ -19,9 +20,12 @@ export const Button: React.FC<ButtonProps> = ({
   backgroundColor,
   color,
   text,
+  onClick,
 }) => {
   return (
-    <TouchableOpacity style={[styles.button, { backgroundColor }]}>
+    <TouchableOpacity
+      style={[styles.button, { backgroundColor }]}
+      onPress={onClick}>
       <Text style={[{ color }]}>{text}</Text>
     </TouchableOpacity>
   );
