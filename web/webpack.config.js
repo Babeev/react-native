@@ -36,7 +36,7 @@ module.exports = {
             options: {
               cacheDirectory: true,
               babelrc: true,
-              filename: path.resolve(appDirectory, 'babel.config.js'),
+              filename: path.resolve(appDirectory, 'babel.config.json'),
             },
           },
         ],

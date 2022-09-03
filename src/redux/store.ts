@@ -3,13 +3,15 @@ import { api } from '../api';
 import userReducer from './slices/userSlice';
 
 export const store = configureStore({
+  devTools: true,
+
   reducer: {
     user: userReducer,
     [api.reducerPath]: api.reducer,
   },
 
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(api.middleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(api.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

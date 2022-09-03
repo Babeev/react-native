@@ -10,7 +10,7 @@ interface AuthControllerProps {
 
 export const useAuthController = ({ navigation }: AuthControllerProps) => {
   // const [authMutation] = usePostAuthMutation();
-  // const [getUserMutation] = useGetUserMutation();
+  const [getUserMutation] = useGetUserMutation();
 
   const authorize = useCallback(async (email: string, password: string) => {
     try {
