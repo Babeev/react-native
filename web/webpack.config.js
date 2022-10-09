@@ -11,7 +11,6 @@ module.exports = {
   output: {
     filename: 'bundle.web.js',
     path: path.resolve(appDirectory, 'web/dist'),
-    publicPath: '/',
     clean: true,
   },
 
@@ -29,28 +28,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(js|jsx|ts|tsx)$/,
+        include: [
+          path.resolve(appDirectory, 'web/index.web.js'),
+          path.resolve(appDirectory, 'src'),
+        ],
+
         use: [
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true,
-              babelrc: true,
-              filename: path.resolve(appDirectory, 'babel.config.json'),
+              configFile: path.resolve(appDirectory, 'babel.config.js'),
             },
           },
         ],
       },
 
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-
-      {
-        test: /\.(?:ico|svg|gif|png|jpg|jpeg)$/i,
-        type: 'asset/inline',
+        test: /\.(gif|jpe?g|png|svg)$/,
+        type: 'asset/resource',
       },
     ],
   },
@@ -69,7 +65,5 @@ module.exports = {
     },
 
     extensions: ['.web.js', '.js', '.jsx', '.ts', '.tsx'],
-
-    modules: ['.', 'node_modules'],
   },
 };

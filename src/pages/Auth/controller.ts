@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { usePostAuthMutation } from '../../api/auth/postAuthEndpoint';
 import { useGetUserMutation } from '../../api/user/getUserEndpoint';
 

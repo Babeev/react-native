@@ -1,5 +1,6 @@
+import { Link } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
@@ -29,30 +30,9 @@ export const Auth = ({ navigation }: AuthProps) => {
   const { authorize } = useAuthController({ navigation });
 
   return (
-    <SafeAreaView style={styles.page}>
-      <Modal title="Login to the system">
-        <Input
-          value={email}
-          setValue={setEmail}
-          placeholder="Email"
-          marginTop={32}
-          marginBottom={16}
-        />
-
-        <Input
-          value={password}
-          setValue={setPassword}
-          placeholder="Password"
-          marginBottom={24}
-        />
-
-        <Button
-          backgroundColor="blue"
-          text="Перейти в CRM"
-          color="#fff"
-          onClick={() => authorize(email, password)}
-        />
-      </Modal>
-    </SafeAreaView>
+    <>
+      <Text>Auth page</Text>
+      <Link to={{ screen: 'Main' }}>Link to Main page</Link>
+    </>
   );
 };
